@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+    head
+        block title
+            title= "Top Moto"
+        meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+        meta(name="description" content="This was supposed to be a page about farming then became a personal web page")
+        link(crossorigin='anonymous' href='/css/app.css' media='all' rel='stylesheet')
+        script(type='text/javascript', src='js')
+    body
+
+        block navigation
+            nav(class='menu')
+                div(class='menu-entry')
+                    a(href='' class='menu-link')
+                        span(class='menu-text')="Verkauf"
+                div(class='menu-entry')
+                    a(href='' class='menu-link')
+                        span(class='menu-text')="Ankauf"
+                div(class='menu-entry')
+                    a(href='' class='menu-link')
+                        span(class='menu-text')="Kontakt"
+
+        block content

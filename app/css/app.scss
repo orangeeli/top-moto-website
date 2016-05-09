@@ -20,6 +20,11 @@ body, html{
   -webkit-font-feature-settings: 'liga', 'kern';
 }
 
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
 // Import page specific scss
 @import "menu.app";
 @import "sell/sell.app";

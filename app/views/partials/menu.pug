@@ -1,0 +1,10 @@
+mixin menu(entries)
+  nav(class='menu')
+    each entry, index in entries
+      let menuEntryClass = 'menu-entry'
+      if entry.isSelected
+        menuEntryClass = 'menu-entry menu-selected'
+
+      div(class=menuEntryClass)
+        a(href=entry.link class='menu-link')
+          span(class='menu-text')=entry.name

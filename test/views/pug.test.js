@@ -5,27 +5,22 @@
   const assert = require('chai').assert,
     fs = require('fs'),
     path = require('path'),
-    pug = require('pug');
-
+    pug = require('pug'),
+    cheerio = require('cheerio');
 
   describe('pug', ()=>{
 
 
     it("should render menu", ()=>{
-      let includeMenuMixin,
-        html;
+      let html,
+        $;
 
-      includeMenuMixin = fs.readFileSync(__dirname + '/fixtures/include.menu.mixin.pug', 'utf8');
+      html = pug.renderFile(__dirname + '/fixtures/include.menu.mixin.pug');
 
-      html = pug.render(includeMenuMixin, {
-        doctype : "doctype"
-      });
-      
-      assert.equal(includeMenuMixin, html);
+      $ = cheerio.load(html);
+
+      assert.isTrue($("div[data-menu-entry='Verkauf']").hasClass("menu-selected"));
 
     });
-
-
   });
-
 })();

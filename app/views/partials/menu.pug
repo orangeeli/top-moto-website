@@ -1,10 +1,13 @@
-mixin menu(entries)
+
+- var entries = [{name:"Verkauf", link:"/sell"},{name:"Ankauf", link:"/buy"},{name:"Kontakt", link:"/contacts"}];
+
+mixin menu(selectedEntry)
   nav(class='menu')
     each entry, index in entries
-      let menuEntryClass = 'menu-entry'
-      if entry.isSelected
-        menuEntryClass = 'menu-entry menu-selected'
+      - var menuEntryClass = 'menu-entry'
+      if entry.name === selectedEntry
+        - menuEntryClass = 'menu-entry menu-selected'
 
-      div(class=menuEntryClass)
+      div(class=menuEntryClass, data-menu-entry=entry.name)
         a(href=entry.link class='menu-link')
           span(class='menu-text')=entry.name

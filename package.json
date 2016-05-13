@@ -17,6 +17,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "cheerio": "^0.20.0",
+    "del": "^2.2.0",
     "grunt": "^1.0.1",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-pug": "^1.0.0",

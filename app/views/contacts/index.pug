@@ -4,16 +4,7 @@ block title
   title="Contacts Title"
 
 block navigation
-  nav(class='menu')
-    div(class='menu-entry')
-      a(href='/sell' class='menu-link')
-        span(class='menu-text')="Verkauf"
-    div(class='menu-entry')
-      a(href='/buy' class='menu-link')
-        span(class='menu-text')="Ankauf"
-    div(class='menu-entry menu-selected')
-      a(href='/contacts' class='menu-link')
-        span(class='menu-text')="Kontakt"
+  +menu("Kontakt")
 
 block content
   header(class="title")

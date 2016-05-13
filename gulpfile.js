@@ -6,7 +6,9 @@
   const gulp = require('gulp'),
     sass = require('gulp-sass'),
     pug = require('gulp-pug'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    pugLinter = require('gulp-pug-linter'),
+    debug = require('gulp-debug');
 
   const tasks = {
 
@@ -17,7 +19,8 @@
     },
 
     pug () {
-      return gulp.src('app/views/**/*.pug')
+      return gulp.src('./app/views/**/*.pug')
+        .pipe(debug({title: 'unicorn:'}))
         .pipe(pug({
           pretty: true
         }))
@@ -47,17 +50,21 @@
         })).once('error', function () {
           process.exit(1);
         });
-        // .once('end', function () {
-        //   process.exit();
-        // }); For other experiences
+    },
+    gulpLint(){
+      return gulp
+        .src('./app/views/**/*.pug')
+        .pipe(pugLinter())
+        .pipe(pugLinter.reporter());
     }
   };
 
   // have another task for deploy
   gulp.task('compile:sass', tasks.sass);
+  gulp.task('lint:pug', tasks.pugLinter);
   gulp.task('compile:pug', tasks.pug);
   gulp.task('test:mocha', tasks.mocha);
-  gulp.task('default', ['test:mocha', 'compile:sass', 'compile:pug']);
+  gulp.task('default', ['test:mocha', 'compile:sass', 'lint:pug', 'compile:pug']);
 
 })();
 

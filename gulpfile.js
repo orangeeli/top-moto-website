@@ -29,21 +29,6 @@
         }))
         .pipe(gulp.dest('www'));
     },
-
-    pugIndex () {
-      return gulp.src('app/views/index.pug')
-        .pipe(pug({
-          pretty: true
-        }))
-        .pipe(gulp.dest('www'));
-    },
-    pugPages () {
-      return gulp.src('app/views/**/index.pug')
-        .pipe(pug({
-          pretty: true
-        }))
-        .pipe(gulp.dest('www'));
-    },
     mocha (){
       return gulp.src(['./test/**/*.js'], {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it

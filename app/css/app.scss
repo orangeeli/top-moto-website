@@ -1,5 +1,4 @@
-// The path for our ionicons font files, relative to the built CSS in www/css
-// $font-path: ".path/to/fonts" !default;
+@charset "UTF-8";
 
 @import "reset.app";
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
@@ -23,7 +22,6 @@ body, html{
 .page-container {
   display: flex;
   flex-direction: row;
-
   width: 100%;
   height: 100%;
   background-color: #0366A0;
@@ -31,10 +29,17 @@ body, html{
 
 .content-container {
   margin-left: 335px;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 40px;
 }
 
-// Import page specific scss
-@import "menu.app";
-@import "sell/sell.app";
-@import "buy/buy.app";
+@import "mixins",
+  "variables",
+  "grid",
+  "menu.app",
+  "sell/sell.app",
+  "buy/buy.app";
 

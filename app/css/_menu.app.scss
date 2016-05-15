@@ -1,19 +1,19 @@
 .menu {
+  @include display-flex();
+  @include flex-direction(column);
   width: 335px;
   max-height: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start; /*check later whether it should stay in the beginning or in the middle*/
   margin-top: 100px;
   position: fixed;
 
   .menu-entry {
-    display: flex;
+    @include display-flex();
+    @include flex-direction(column); /*force content to fill remain inside the parent*/
     width: 100%;
     max-height: 150px;
     border-bottom: 1px solid #6CC0F1;
-    flex-direction: column; /*force content to fill remain inside the parent*/
   }
 
   .menu-link {
@@ -25,22 +25,15 @@
     background-color: rgba(157, 156, 156, 0);
     transition: all 0.6s linear;
     box-sizing: border-box; /*force content to fill remain inside the parent*/
-  }
 
-  .menu-link:hover{
-    @extend .menu-link;
-    color: #6CC0F1;
-    background-color: rgba(157, 156, 156, 0.4);
-    transition: all 0.6s linear;
-  }
+    &:hover {
+      color: #6CC0F1;
+      background-color: rgba(157, 156, 156, 0.4);
+      transition: all 0.6s linear;
+    }
 
-  .menu-link:active {
-    @extend .menu-link;
-  }
+    &:active{}
 
-  .menu-link:hover {
-    @extend .menu-link;
   }
-
 }
 

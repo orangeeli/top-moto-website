@@ -1,0 +1,27 @@
+extends ../../index.pug
+
+block title
+  title="Verkauf Title"
+
+block navigation
+  +menu("Verkauf")
+
+block content
+  header(class="title")
+  section
+    form
+      div(class="form-group")
+        label(for="category")="Kategorie"
+        select(class="form-control input-lg" name="category" id="category")
+          option="Option 1"
+          option="Option 2"
+          option="Option 3"
+      div(class="form-group")
+        label(for="brand")="Marke/Model"
+        select(class="form-control input-lg" name="brand" id="brand")
+          option="Option 1"
+          option="Option 2"
+          option="Option 3"
+      div(class="form-group")
+        button(class="btn btn-default" type="submit")="Button"
+

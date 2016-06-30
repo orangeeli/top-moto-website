@@ -4,7 +4,7 @@
   "description": "top moto site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test:mocha"
   },
   "keywords": [
     "motorcycles",
@@ -18,20 +18,12 @@
     "chai": "^3.5.0",
     "cheerio": "^0.20.0",
     "del": "^2.2.0",
-    "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-debug": "^2.1.2",
     "gulp-mocha": "^2.2.0",
     "gulp-pug": "^2.0.0",
     "gulp-pug-linter": "^0.2.1",
     "gulp-sass": "^2.3.1",
-    "load-grunt-tasks": "^3.5.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.7.0",
     "pug": "^2.0.0-alpha6"

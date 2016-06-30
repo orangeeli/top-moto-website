@@ -11,9 +11,14 @@
     mocha = require('gulp-mocha'),
     pugLinter = require('gulp-pug-linter'),
     debug = require('gulp-debug'),
-    del = require('del');
+    del = require('del'),
+    nsp = require('gulp-nsp');
 
   const tasks = {
+
+    nsp(cb){
+      nsp({package: __dirname + '/package.json'}, cb);
+    },
 
     sass(){
       return gulp.src('./app/css/app.scss')
@@ -68,10 +73,12 @@
   gulp.task('compile:pug', tasks.pug);
   gulp.task('test:mocha', tasks.mocha);
   gulp.task('clean:www', tasks.www.clean);
+  gulp.task('security:nsp', tasks.nsp);
 
   // TODO : would be nice to instead of cleaning the partials folder after the generation, not to generate it at all
   gulp.task('clean:partials', ['compile:pug'], tasks.partials.clean);
-  gulp.task('default', ['clean:www', 'test:mocha', 'compile:sass', 'lint:pug', 'compile:pug', 'clean:partials']);
+
+  gulp.task('default', ['security:nsp', 'clean:www', 'test:mocha', 'compile:sass', 'lint:pug', 'compile:pug', 'clean:partials']);
 
 })();
 

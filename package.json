@@ -35,5 +35,8 @@
     "mocha": "^2.4.5",
     "node-sass": "^3.7.0",
     "pug": "^2.0.0-alpha6"
+  },
+  "dependencies": {
+    "gulp-nsp": "^2.4.1"
   }
 }

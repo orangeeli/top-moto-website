@@ -68,9 +68,9 @@
   };
 
   // TODO: have another task for deploy
-  gulp.task('compile:sass', tasks.sass);
+  gulp.task('compile:sass', ['clean:www'], tasks.sass);
   gulp.task('lint:pug', tasks.pugLinter);
-  gulp.task('compile:pug', tasks.pug);
+  gulp.task('compile:pug',  ['clean:www'], tasks.pug);
   gulp.task('test:mocha', tasks.mocha);
   gulp.task('clean:www', tasks.www.clean);
   gulp.task('security:nsp', tasks.nsp);

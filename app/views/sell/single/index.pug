@@ -1,0 +1,29 @@
+extends ../../index.pug
+
+block title
+  title="Verkauf Title"
+
+block navigation
+  +menu("Verkauf")
+
+block content
+  header(class="title")
+  section
+    div(class="single-photo")
+      figure(class="grid-figure")
+        div(class="grid-photo-wrap")
+          a(href="category")
+            img(src="http://www.yamaha-motor.eu/eu/binary/2015_YAM_LibertyYam_FR_CUSTOM_STA__001_gal_worlds_full_tcm114-626363.jpg" alt="This is a moto" class="grid-photo")
+        figcaption
+          p="This is a caption"
+      div(class="comments")
+        div(class="comment")
+          p="EZ 04/2011"
+        div(class="comment")
+          p="19.821 km"
+        div(class="comment")
+          p="Benzin"
+        div(class="comment")
+          p="96 kW (131 PS)"
+        div(class="comment")
+          p="Schaltgetriebe"

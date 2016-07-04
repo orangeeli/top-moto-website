@@ -1,0 +1,32 @@
+.moto-row {
+  position: relative;
+  margin: 5px;
+  margin-bottom: 11px;
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+}
+
+.moto-link {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.col-photo {
+  height: 80px;
+  background: transparent url("http://www.yamaha-motor.eu/eu/binary/2015_YAM_LibertyYam_FR_CUSTOM_STA__001_gal_worlds_full_tcm114-626363.jpg") no-repeat scroll 0% 0% / cover;
+}
+
+.col-white {
+  background-color: rgb(255, 255, 255);
+}
+
+a.assertive {
+  color: #FB3C00; /*FF693A*/
+}
+
+h3.moto-name {
+  /*color: #FF693A;*/
+  color: #000;
+  font-weight: normal;
+}

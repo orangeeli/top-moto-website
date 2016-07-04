@@ -1,0 +1,68 @@
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-figure {
+  flex-basis: calc(33.333% - 4rem);
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 2rem 2rem 2rem;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  background: white;
+  position: relative;
+}
+
+
+.single-photo{
+  @extend .grid-figure;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  background: white;
+
+  .grid-figure{
+    box-shadow: none;
+    margin: 0 2rem 0 0;
+    border: 0;
+    padding: 0;
+    flex: 1 0 60%;
+    max-width: 60%;
+  }
+
+  .comments {
+    flex: 1 0 40%;
+    max-width: 40%;
+  }
+
+  .grid-photo{
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.grid-photo{
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  margin-top: -2rem;
+  max-width: none;
+}
+
+.comment {
+  border-bottom: 1px solid lightgrey;
+  padding: 0.5rem 0;
+  p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  strong {
+    color: blue;
+    margin-right: 5px;
+  }
+
+}
+
+

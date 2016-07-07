@@ -12,14 +12,48 @@
     pugLinter = require('gulp-pug-linter'),
     debug = require('gulp-debug'),
     del = require('del'),
-    nsp = require('gulp-nsp');
+    nsp = require('gulp-nsp'),
+    browserify = require('browserify'),
+    uglify = require('gulp-uglify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    jshint = require('gulp-jshint'),
+    stylish = require('jshint-stylish'),
+    rename = require('gulp-rename');
 
   const tasks = {
 
     nsp(cb){
       nsp({package: __dirname + '/package.json'}, cb);
     },
-
+    js: {
+      lint() {
+        return gulp.src('./app/js/*.js')
+          .pipe(jshint({
+            esnext : true
+          }))
+          .pipe(jshint.reporter(stylish))
+          .pipe(jshint.reporter('fail'))
+      },
+      browserify(){
+        return browserify("./app/js/app.js")
+          .transform("babelify", {presets: ["es2015", "react"]}) // https://www.npmjs.com/package/babelify
+          .bundle()
+          .on('error', function (err) {
+            console.error(err);
+            this.emit('end');
+          })
+          .pipe(source("app.js"))
+          .pipe(buffer())
+          .pipe(uglify({
+            compress: {
+              drop_console: true
+            }
+          }))
+          .pipe(rename("app.min.js"))
+          .pipe(gulp.dest("./www/js"));
+      }
+    },
     sass(){
       return gulp.src('./app/css/app.scss')
         .pipe(sass().on('error', sass.logError))
@@ -74,11 +108,13 @@
   gulp.task('test:mocha', tasks.mocha);
   gulp.task('clean:www', tasks.www.clean);
   gulp.task('security:nsp', tasks.nsp);
+  gulp.task('compile:js', ['lint:js'], tasks.js.browserify);
+  gulp.task('lint:js', tasks.js.lint);
 
   // TODO : would be nice to instead of cleaning the partials folder after the generation, not to generate it at all
   gulp.task('clean:partials', ['compile:pug'], tasks.partials.clean);
 
-  gulp.task('default', ['security:nsp', 'clean:www', 'test:mocha', 'compile:sass', 'lint:pug', 'compile:pug', 'clean:partials']);
+  gulp.task('default', ['security:nsp', 'clean:www', 'test:mocha', 'compile:sass', 'lint:pug', 'compile:pug', 'lint:js', 'compile:js', 'clean:partials']);
 
 })();
 

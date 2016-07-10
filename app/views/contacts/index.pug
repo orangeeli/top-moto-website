@@ -9,4 +9,18 @@ block navigation
 block content
   header(class="title")
     h1="Kontact"
-  section="Kontact Content"
+  section
+    form(class="form-inner-labels" action="/sell/results")
+      div(class="form-group")
+        label(for="name")="Name"
+        input(class="form-control input-lg" name="name" id="name")
+      div(class="form-group")
+        label(for="email")="Email"
+        input(class="form-control input-lg" name="email" id="email")
+
+      div(class="form-group")
+        label(for="message")="Nachricht"
+        textarea(class="form-control input-lg" name="message" id="message")
+
+      div(class="form-group")
+        button(class="btn btn-default" type="submit")="Absenden"

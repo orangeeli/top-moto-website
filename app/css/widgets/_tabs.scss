@@ -31,15 +31,29 @@ $tabs-base-color: #6CC0F1;
     font-weight: normal;
     text-transform: uppercase;
     //background: $tabs-base-color;
-    border-bottom: 1px solid $tabs-base-color;
+    //border-bottom: 1px solid $tabs-base-color;
+    border-bottom: none;
     cursor: pointer;
     position: relative;
     top: 4px;
-    @include transition(all 0.2s ease-in-out);
+    //&:hover {
+    //  border-bottom: 1px solid darken($tabs-base-color, 10);
+    //}
+  }
+
+  .tab-border {
+    width: 0;
+    display: flex;
+    border-bottom: 1px solid darken($tabs-base-color, 10);
+    @include transition(all 0.2s ease-out);
     &:hover {
-      border-bottom: 1px solid darken($tabs-base-color, 10);
+      width: 100%;
+      display: flex;
+      border-bottom: 1px solid darken($tabs-base-color, 15);
+      @include transition(all 0.2s ease-in);
     }
   }
+
   .tab-content{
     z-index: 2;
     display: none;
@@ -55,14 +69,19 @@ $tabs-base-color: #6CC0F1;
   }
   //The Magic
   [id^="tab"]:checked + label {
-    top: 0;
-    padding-top: 17px;
-    //background: darken($tabs-base-color, 15);
-    border-bottom: 1px solid darken($tabs-base-color, 15);
+    //border-bottom: 1px solid darken($tabs-base-color, 15);
   }
   [id^="tab"]:checked ~ [id^="tab-content"] {
     display: block;
   }
+
+  [id^="tab"]:checked ~ .tab-border {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid darken($tabs-base-color, 15);
+    @include transition(all 0.2s ease-in);
+  }
+
 }
 p.link {
   clear: both;
@@ -74,12 +93,11 @@ p.link {
     color: #fff;
     padding: 5px 10px;
     margin: 0 5px;
-    //background-color: darken($tabs-base-color, 15);
-    border-bottom: 1px solid darken($tabs-base-color, 15);
-    @include transition(all 0.2s ease-in);
-    &:hover {
-      //background-color: darken($tabs-base-color, 20);
-      border-bottom: 1px solid darken($tabs-base-color, 20);
-    }
+    //border-bottom: 1px solid darken($tabs-base-color, 15);
+    //@include transition(border-bottom 0.2s ease-in-out);
+    //&:hover {
+    //  border-bottom: 1px solid darken($tabs-base-color, 20);
+    //  @include transition(border-bottom 0.2s ease-in-out);
+    //}
   }
 } 

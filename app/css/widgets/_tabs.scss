@@ -8,15 +8,16 @@ $tabs-base-color: #6CC0F1;
 }
 
 .tabs {
-  width: 650px;
-  float: none;
+  width: 900px;
   list-style: none;
   position: relative;
-  margin: 80px 0 0 10px;
+  margin: 0 auto;
   text-align: left;
+  display: flex;
+  justify-content: flex-start;
   li {
-    float: left;
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
   input[type="radio"] {
     position: absolute;
@@ -72,7 +73,7 @@ $tabs-base-color: #6CC0F1;
     //border-bottom: 1px solid darken($tabs-base-color, 15);
   }
   [id^="tab"]:checked ~ [id^="tab-content"] {
-    display: block;
+    display: flex;
   }
 
   [id^="tab"]:checked ~ .tab-border {

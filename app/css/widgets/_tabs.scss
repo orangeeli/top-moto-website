@@ -15,10 +15,21 @@ $tabs-base-color: #6CC0F1;
   text-align: left;
   display: flex;
   justify-content: flex-start;
-  li {
+  .tab {
     display: flex;
     flex-direction: column;
+
+    //&+&{
+      // should fucking work
+      //margin-left: 21px;
+    //}
+
   }
+
+  .tab + .tab {
+    margin-left: 21px;
+  }
+
   input[type="radio"] {
     position: absolute;
     top: -9999px;
@@ -26,7 +37,7 @@ $tabs-base-color: #6CC0F1;
   }
   label {
     display: block;
-    padding: 14px 21px;
+    padding: 14px 0;
     border-radius: 2px 2px 0 0;
     font-size: 20px;
     font-weight: normal;
@@ -62,7 +73,8 @@ $tabs-base-color: #6CC0F1;
     width: 100%;
     font-size: 17px;
     line-height: 25px;
-    padding: 25px;
+    //padding: 25px;
+    padding: 25px 25px 25px 0;
     position: absolute;
     top: 53px;
     left: 0;

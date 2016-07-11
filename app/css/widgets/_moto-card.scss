@@ -81,14 +81,18 @@
   max-height: 70px;
   justify-content: flex-start;
 
-  li {
+  .grid-photo-thumbnail-container {
     display: flex;
     width: 33.3%;
-    img {
-      object-fit: contain;
+    .grid-photo-thumbnail {
+      object-fit: cover;
       width: 100%;
     }
 
+  }
+
+  .grid-photo-thumbnail-container+.grid-photo-thumbnail-container {
+    margin-left:20px;
   }
 }
 

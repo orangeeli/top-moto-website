@@ -17,11 +17,11 @@ block content
         figcaption
           p="This is a caption"
         ul(class="slider")
-          li
+          li(class="grid-photo-thumbnail-container")
             img(src="http://www.yamaha-motor.eu/eu/binary/2015_YAM_LibertyYam_FR_CUSTOM_STA__001_gal_worlds_full_tcm114-626363.jpg" alt="This is a moto" class="grid-photo-thumbnail")
-          li
+          li(class="grid-photo-thumbnail-container")
             img(src="http://www.yamaha-motor.eu/eu/binary/2015_YAM_LibertyYam_FR_CUSTOM_STA__001_gal_worlds_full_tcm114-626363.jpg" alt="This is a moto" class="grid-photo-thumbnail")
-          li
+          li(class="grid-photo-thumbnail-container")
             img(src="http://www.yamaha-motor.eu/eu/binary/2015_YAM_LibertyYam_FR_CUSTOM_STA__001_gal_worlds_full_tcm114-626363.jpg" alt="This is a moto" class="grid-photo-thumbnail")
 
       div(class="comments")
@@ -38,13 +38,13 @@ block content
 
 
     ul(class="tabs")
-      li
+      li(class="tab")
         input(type="radio" name="tabs" id="tab1" checked)
         label(for="tab1")="Description"
         div(class="tab-border")
         div(id="tab-content1" class="tab-content")
           p="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      li
+      li(class="tab")
         input(type="radio" name="tabs" id="tab2")
         label(for="tab2")="Specification"
         div(class="tab-border")

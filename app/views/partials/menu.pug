@@ -3,6 +3,7 @@
 
 mixin menu(selectedEntry)
   nav(class='menu')
+    div(class="menu-header")
     each entry, index in entries
       - var menuEntryClass = 'menu-entry'
       if entry.name === selectedEntry
@@ -11,3 +12,5 @@ mixin menu(selectedEntry)
       div(class=menuEntryClass, data-menu-entry=entry.name)
         a(href=entry.link class='menu-link')
           span(class='menu-text')=entry.name
+
+    div(class="menu-footer")

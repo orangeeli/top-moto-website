@@ -1,0 +1,12 @@
+@mixin border-right {
+  border-right: 1px solid $base-light-blue;
+}
+
+@mixin border-bottom {
+  border-bottom: 1px solid $base-light-blue;
+}
+
+@mixin menu-item-borders {
+  border-right: 1px solid $base-light-blue;
+  border-bottom: 1px solid $base-light-blue;
+}

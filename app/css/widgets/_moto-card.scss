@@ -10,7 +10,7 @@
   flex-grow: 1;
   flex-shrink: 0;
   margin: 0 2rem 2rem 0;
-  padding: 2rem 2rem 2rem 0;
+  padding: 0 2rem 2rem 0;
   background: white;
   position: relative;
 }
@@ -75,9 +75,6 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  //width: 100%;
-  //flex: 1 0 60%;
-  //max-width: 60%;
   max-height: 70px;
   justify-content: flex-start;
 

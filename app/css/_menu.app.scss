@@ -11,7 +11,7 @@
   .menu-header {
     @include display-flex();
     @include menu-item-borders();
-    height: 70px;
+    height: $top-height;
   }
 
   .menu-footer {
@@ -52,6 +52,7 @@
       //background-color: rgba(157, 156, 156, 0.4);
       background-color: rgba(108, 192, 241, 0.4);
       transition: all 0.6s linear;
+      border-right: none !important;
     }
 
     &:active{}

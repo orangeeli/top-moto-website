@@ -85,6 +85,11 @@
         .pipe(pugLinter.reporter());
     },
     www : {
+      copy (cb) {
+        // copy('./app/images', 'www', cb);
+        return gulp.src('./app/images/**/*', {base: './app/images/'})
+          .pipe(gulp.dest('./www/images'));
+      },
       clean () {
         return del([
           'www/**/*'
@@ -107,6 +112,7 @@
   gulp.task('compile:pug',  ['clean:www'], tasks.pug);
   gulp.task('test:mocha', tasks.mocha);
   gulp.task('clean:www', tasks.www.clean);
+  gulp.task('copy:images:www', ['clean:www'], tasks.www.copy);
   gulp.task('security:nsp', tasks.nsp);
   gulp.task('compile:js', ['lint:js'], tasks.js.browserify);
   gulp.task('lint:js', tasks.js.lint);
@@ -114,7 +120,12 @@
   // TODO : would be nice to instead of cleaning the partials folder after the generation, not to generate it at all
   gulp.task('clean:partials', ['compile:pug'], tasks.partials.clean);
 
-  gulp.task('default', ['security:nsp', 'clean:www', 'test:mocha', 'compile:sass', 'lint:pug', 'compile:pug', 'lint:js', 'compile:js', 'clean:partials']);
+  gulp.task('default', ['security:nsp',
+    'clean:www', 'test:mocha',
+    'compile:sass', 'lint:pug',
+    'compile:pug', 'lint:js',
+    'compile:js', 'clean:partials',
+    'copy:images:www']);
 
 })();
 

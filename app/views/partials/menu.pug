@@ -4,6 +4,7 @@
 mixin menu(selectedEntry)
   nav(class='menu')
     div(class="menu-header")
+      img(src="/images/Topmoto_Logo_v2.svg" alt="The top moto logo" class="logo")
     each entry, index in entries
       - var menuEntryClass = 'menu-entry'
       if entry.name === selectedEntry
